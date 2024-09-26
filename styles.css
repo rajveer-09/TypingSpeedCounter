@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    background-size: 300% 300%; /* For animation effect */
+    animation: gradientAnimation 15s ease infinite; /* Add animation */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.red-mode {
+    background-color: #ff4d4d; /* Red mode background */
+    color: black; /* Text color for red mode */
+}
+
+body.green-mode {
+    background-color: #4dff4d; /* Green mode background */
+    color: black; /* Text color for green mode */
+}
+
+body.blue-mode {
+    background-color: #4d94ff; /* Blue mode background */
+    color: black; /* Text color for blue mode */
+}
+
+body.dark-mode {
+    background-color: #121212; /* Dark mode background */
+    color: white; /* Text color for dark mode */
+    animation: none; /* Remove animation in dark mode */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+body.dark-mode .container {
+    background: rgba(255, 255, 255, 0.2); /* Colorful card for dark mode */
+    backdrop-filter: none; /* Remove blur effect in dark mode */
+}
+
+body.red-mode .container,
+body.green-mode .container,
+body.blue-mode .container {
+    background: rgba(255, 255, 255, 0.5); /* Light card for colorful modes */
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease;
+}
+
+.instruction {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.sentence {
+    font-weight: bold;
+    margin: 20px 0;
+    color: black; /* Change sentence color to black */
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid white; /* Border for textarea */
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    transition: background 0.3s, border 0.3s;
+}
+
+textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+textarea.error {
+    border: 2px solid red; /* Red border when there is an error */
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 60px; /* Width of the toggle */
+    height: 34px; /* Height of the toggle */
+}
+
+.toggle-button input {
+    opacity: 0; /* Hide the default checkbox */
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Background color for toggle */
+    transition: .4s; /* Transition for background color */
+    border-radius: 34px; /* Rounded corners */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Height of the switch knob */
+    width: 26px; /* Width of the switch knob */
+    left: 4px; /* Positioning of the knob */
+    bottom: 4px;
+    background-color: white; /* Color of the knob */
+    border-radius: 50%; /* Make it circular */
+    transition: .4s; /* Transition for knob movement */
+}
+
+/* Change the background color of the slider when toggled */
+input:checked + .slider {
+    background-color: #2196F3; /* Color when toggled */
+}
+
+/* Move the knob to the right */
+input:checked + .slider:before {
+    transform: translateX(26px); /* Move the knob to the right */
+}
+
+/* Additional styles for color modes */
+body.red-mode .slider {
+    background-color: #ff4d4d; /* Background color for red mode */
+}
+
+body.green-mode .slider {
+    background-color: #4dff4d; /* Background color for green mode */
+}
+
+body.blue-mode .slider {
+    background-color: #4d94ff; /* Background color for blue mode */
+}
+
+body.dark-mode .slider {
+    background-color: #333; /* Background for dark mode */
+}
+
+body.dark-mode input:checked + .slider:before {
+    background-color: white; /* Keep the knob white in dark mode */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

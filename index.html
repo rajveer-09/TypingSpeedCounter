@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Typing Speed Counter</title>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <h1 class="title">Typing Speed Test</h1>
+        <p class="instruction">Type the sentence below:</p>
+        <p class="sentence" id="sentence"></p>
+        <textarea id="input" placeholder="Start typing here..."></textarea>
+        <div class="results">
+            <h2>Your Typing Speed: <span id="speed">0</span> WPM</h2>
+        </div>
+    </div>
+    <label class="toggle-button" id="toggle-button">
+        <input type="checkbox" id="mode-switch">
+        <span class="slider"></span>
+    </label>
+    <script src="script.js"></script>
+</body>
+</html>
